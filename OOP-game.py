@@ -17,6 +17,11 @@ game_display = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Blob World")
 clock = pygame.time.Clock()
 
+class BlueBlob(Blob):
+    def __init__(self, color, x_boundary, y_boundary):
+        super(). __init__(color, x_boundary, y_boundary)
+        self.color = BLUE
+
 # class Blob:
 #     def __init__(self, color):
 #         self.x = random.randrange(0, WIDTH)
@@ -51,8 +56,8 @@ def draw_environment(blob_list):
     pygame.display.update()
 
 def main():
-    blue_blobs = dict(enumerate([Blob(BLUE, WIDTH, HEIGHT )for i in range (STARTING_BLUE_BLOBS)]))
-    red_blobs = dict(enumerate([Blob(RED, WIDTH, HEIGHT) for i in range (STARTING_RED_BLOBS)]))
+    blue_blobs = dict(enumerate([BlueBlob(BLUE, WIDTH, HEIGHT )for i in range (STARTING_BLUE_BLOBS)]))
+    red_blobs = dict(enumerate([BlueBlob(RED, WIDTH, HEIGHT) for i in range (STARTING_RED_BLOBS)]))
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
